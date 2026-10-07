@@ -1,0 +1,80 @@
+---
+import { site } from '../config/site';
+
+interface Props {
+  inverse?: boolean;
+}
+const { inverse = false } = Astro.props;
+---
+
+{
+  site.logo ? (
+    <img src={site.logo} alt={site.name} class="logo-img" width="180" height="48" />
+  ) : (
+    <span class:list={['wordmark', { inverse }]} aria-label={site.name}>
+      <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="16" cy="16" r="10" fill="none" stroke="currentColor" stroke-width="4.5" />
+        <path
+          d="M3 21.5c4.5 3.5 9 3.5 13 0s8.5-3.5 13 0"
+          fill="none"
+          stroke="var(--teal)"
+          stroke-width="3"
+          stroke-linecap="round"
+        />
+      </svg>
+      <span class="text">
+        <span class="open">open</span><span class="waves">waves</span>
+        <span class="design">Design</span>
+      </span>
+    </span>
+  )
+}
+
+<style>
+  .wordmark {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    color: var(--navy);
+    font-family: var(--font-head);
+    line-height: 1;
+  }
+  .wordmark.inverse {
+    color: var(--paper);
+  }
+  .mark {
+    width: 2rem;
+    height: 2rem;
+    flex: none;
+  }
+  .text {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    max-width: 8.5rem;
+  }
+  .open {
+    font-weight: 400;
+    font-size: 1.3rem;
+    letter-spacing: -0.02em;
+  }
+  .waves {
+    font-weight: 700;
+    font-size: 1.3rem;
+    letter-spacing: -0.02em;
+  }
+  .design {
+    display: block;
+    width: 100%;
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    margin-top: 0.2rem;
+    opacity: 0.75;
+  }
+  .logo-img {
+    height: 3rem;
+    width: auto;
+  }
+</style>

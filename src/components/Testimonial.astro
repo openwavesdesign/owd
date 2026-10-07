@@ -1,0 +1,59 @@
+---
+import { testimonial } from '../config/content';
+import { site } from '../config/site';
+---
+
+<figure class="testimonial">
+  <svg class="quote-mark" viewBox="0 0 48 36" aria-hidden="true">
+    <path
+      fill="currentColor"
+      d="M0 36V22.6C0 9.9 6.2 2.3 18.5 0l2 4.6C13.8 6.7 10.4 10.6 10 16.4h9.5V36H0Zm28.5 0V22.6C28.5 9.9 34.7 2.3 47 0l1 4.6c-6.7 2.1-10.1 6-10.5 11.8H47V36H28.5Z"
+    ></path>
+  </svg>
+  <blockquote>
+    <p>{testimonial.quote}</p>
+  </blockquote>
+  <figcaption>
+    <strong>{testimonial.name}</strong>
+    <span>{testimonial.role}</span>
+  </figcaption>
+  <a class="reviews" href={site.googleReviewsUrl} target="_blank" rel="noopener">Read our reviews on Google</a>
+</figure>
+
+<style>
+  .testimonial {
+    margin: 0 auto;
+    max-width: 48rem;
+    text-align: center;
+  }
+  .quote-mark {
+    width: 3rem;
+    margin: 0 auto 1.75rem;
+    color: var(--coral);
+  }
+  blockquote {
+    margin: 0;
+  }
+  blockquote p {
+    font-size: clamp(1.3rem, 2.6vw, 1.75rem);
+    line-height: 1.5;
+    font-style: italic;
+  }
+  figcaption {
+    display: grid;
+    gap: 0.15rem;
+    margin-top: 1.75rem;
+    font-family: var(--font-head);
+  }
+  figcaption span {
+    color: var(--gray);
+    font-size: 0.95rem;
+  }
+  .reviews {
+    display: inline-block;
+    margin-top: 1.5rem;
+    font-family: var(--font-head);
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+</style>

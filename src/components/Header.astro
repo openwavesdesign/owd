@@ -1,0 +1,131 @@
+---
+import Wordmark from './Wordmark.astro';
+import { nav } from '../config/site';
+
+const path = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="container bar">
+    <a href="/" class="brand" aria-label="Open Waves Design home"><Wordmark /></a>
+
+    <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">
+      <span class="visually-hidden">Menu</span>
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+        <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+      </svg>
+    </button>
+
+    <nav id="site-nav" class="nav" aria-label="Main">
+      <ul>
+        {
+          nav.map((item) => (
+            <li>
+              <a href={item.href} aria-current={path.startsWith(item.href) ? 'page' : undefined}>
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <a href="/free-website-audit/" class="btn btn--primary nav-cta">Free Site Audit</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+  const navEl = document.getElementById('site-nav');
+  toggle?.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    navEl?.classList.toggle('open', !open);
+  });
+</script>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgb(255 253 251 / 0.88);
+    backdrop-filter: saturate(1.4) blur(12px);
+    border-bottom: 1px solid rgb(233 220 207 / 0.7);
+  }
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 4.75rem;
+  }
+  .brand {
+    text-decoration: none;
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  .nav ul {
+    display: flex;
+    gap: 1.75rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .nav ul a {
+    font-family: var(--font-head);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    padding-block: 0.4rem;
+    border-bottom: 2px solid transparent;
+  }
+  .nav ul a:hover,
+  .nav ul a[aria-current='page'] {
+    border-bottom-color: var(--coral);
+  }
+  .nav-cta {
+    min-height: 2.75rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.925rem;
+  }
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    color: var(--navy);
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+
+  @media (max-width: 860px) {
+    .menu-toggle {
+      display: block;
+    }
+    .nav {
+      display: none;
+      position: absolute;
+      inset: 100% 0 auto;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 1rem;
+      padding: 1.25rem var(--gutter) 1.75rem;
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+    .nav.open {
+      display: flex;
+    }
+    .nav ul {
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .nav ul a {
+      display: block;
+      padding: 0.75rem 0;
+      font-size: 1.05rem;
+    }
+  }
+</style>

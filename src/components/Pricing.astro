@@ -1,0 +1,82 @@
+---
+import { plans } from '../config/content';
+---
+
+<div class="pricing">
+  {
+    plans.map((plan) => (
+      <article class:list={['plan', { featured: plan.featured }]}>
+        {plan.featured && <span class="badge">Most popular</span>}
+        <h3>{plan.name}</h3>
+        <p class="tagline">{plan.tagline}</p>
+        <p class="price">{plan.price}</p>
+        <ul class="check-list">
+          {plan.features.map((f) => (
+            <li>{f}</li>
+          ))}
+        </ul>
+        <a href="/contact/" class:list={['btn', plan.featured ? 'btn--primary' : 'btn--secondary']}>
+          Get started<span class="visually-hidden"> with {plan.name}</span>
+        </a>
+      </article>
+    ))
+  }
+</div>
+
+<style>
+  .pricing {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    align-items: stretch;
+  }
+  .plan {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 2.25rem 2rem 2rem;
+  }
+  .plan.featured {
+    border: 2px solid var(--navy);
+    box-shadow: var(--shadow);
+  }
+  .badge {
+    position: absolute;
+    top: -0.85rem;
+    left: 2rem;
+    background: var(--navy);
+    color: var(--paper);
+    font-family: var(--font-head);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+  }
+  h3 {
+    margin-bottom: 0.35rem;
+  }
+  .tagline {
+    color: var(--gray);
+    font-size: 1rem;
+    min-height: 3.2em;
+  }
+  .price {
+    font-family: var(--font-head);
+    font-size: 2.25rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+  }
+  ul {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  .btn {
+    margin-top: auto;
+  }
+</style>

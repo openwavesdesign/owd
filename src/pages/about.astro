@@ -1,0 +1,122 @@
+---
+import Base from '../layouts/Base.astro';
+import Testimonial from '../components/Testimonial.astro';
+import AuditCta from '../components/AuditCta.astro';
+import { site } from '../config/site';
+
+const values = [
+  { title: 'One point of contact', body: 'When you work with me, you work with me, from the first call to launch day.' },
+  { title: 'Plain English', body: 'No jargon, no tech overwhelm. I explain what matters and handle the rest.' },
+  { title: 'Small by design', body: 'I take on a limited number of projects so each one gets my full attention.' },
+];
+---
+
+<Base
+  title={`About Craig Allen | ${site.name}`}
+  description={`Meet Craig Allen, the web designer behind ${site.name}. 20 years building websites for small businesses in ${site.region} and across the country.`}
+>
+  <section class="page-hero">
+    <div class="container about-grid">
+      <div>
+        <p class="eyebrow">About</p>
+        <h1>Hi, I’m Craig.</h1>
+        <p class="lead">
+          I’ve spent 20 years building websites, managing digital projects, and helping businesses show up online with
+          confidence.
+        </p>
+        <p>
+          For the last decade I’ve run {site.name}, working with small businesses across the country on everything from
+          web design and SEO to content strategy and project management. Today I focus on helping local businesses here
+          in {site.region} get a website that actually works for them.
+        </p>
+        <p>
+          I specialize in websites for solopreneurs and small businesses because I am one. I work with a small number of
+          clients at a time so I can give every project my full attention. When you work with me, you work with me, not
+          a junior designer or an overseas contractor.
+        </p>
+        <div class="btn-row">
+          <a href="/contact/" class="btn btn--primary">Book a free discovery call</a>
+        </div>
+      </div>
+
+      <div class="portrait">
+        {
+          site.headshot ? (
+            <img src={site.headshot} alt="Craig Allen, founder of Open Waves Design" width="480" height="600" />
+          ) : (
+            <div class="monogram" aria-hidden="true">
+              <span>CA</span>
+            </div>
+          )
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--cream">
+    <div class="container">
+      <div class="grid grid--3">
+        {
+          values.map((v) => (
+            <article class="card">
+              <h2 class="h3">{v.title}</h2>
+              <p>{v.body}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container"><Testimonial /></div>
+  </section>
+
+  <AuditCta />
+</Base>
+
+<style>
+  .page-hero {
+    padding-block: clamp(3.5rem, 8vw, 6rem);
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: clamp(2.5rem, 6vw, 5rem);
+    align-items: center;
+  }
+  .btn-row {
+    margin-top: 2rem;
+  }
+  .portrait img,
+  .monogram {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 24px;
+  }
+  .monogram {
+    display: grid;
+    place-items: center;
+    background:
+      radial-gradient(circle at 70% 85%, rgb(36 171 204 / 0.35), transparent 45%),
+      radial-gradient(circle at 20% 15%, rgb(242 124 107 / 0.35), transparent 40%),
+      var(--navy);
+    color: var(--cream);
+    font-family: var(--font-head);
+    font-size: clamp(4rem, 10vw, 7rem);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+  }
+  .h3 {
+    font-size: 1.25rem;
+  }
+  @media (max-width: 860px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+    }
+    .portrait {
+      max-width: 22rem;
+    }
+  }
+</style>

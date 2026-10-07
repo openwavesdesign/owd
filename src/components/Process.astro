@@ -1,0 +1,55 @@
+---
+import { steps } from '../config/content';
+---
+
+<ol class="process">
+  {
+    steps.map((step, i) => (
+      <li>
+        <span class="num" aria-hidden="true">0{i + 1}</span>
+        <h3>
+          <span class="visually-hidden">Step {i + 1}: </span>
+          {step.title}
+        </h3>
+        <p>{step.body}</p>
+      </li>
+    ))
+  }
+</ol>
+
+<style>
+  .process {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+    counter-reset: step;
+  }
+  li {
+    border-top: 2px solid var(--navy);
+    padding-top: 1.5rem;
+  }
+  .num {
+    display: block;
+    font-family: var(--font-head);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--gray);
+    margin-bottom: 0.75rem;
+  }
+  .num::after {
+    content: '';
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    margin-left: 0.6rem;
+    border-radius: 50%;
+    background: var(--coral);
+    vertical-align: middle;
+  }
+  p {
+    font-size: 1.05rem;
+  }
+</style>
