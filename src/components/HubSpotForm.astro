@@ -1,0 +1,31 @@
+---
+import { site } from '../config/site';
+
+interface Props {
+  formId: string;
+}
+const { formId } = Astro.props;
+const { portalId, region } = site.hubspot;
+---
+
+<div class="form-shell">
+  <div class="hs-form-frame" data-region={region} data-form-id={formId} data-portal-id={portalId}></div>
+  <noscript>
+    <p>
+      The form needs JavaScript. You can also email <a href={`mailto:${site.email}`}>{site.email}</a> or call/text
+      <a href={`tel:${site.phone}`}>{site.phone}</a>.
+    </p>
+  </noscript>
+</div>
+<script is:inline src={`https://js-${region}.hsforms.net/forms/embed/${portalId}.js`} defer></script>
+
+<style>
+  .form-shell {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: clamp(1.25rem, 3vw, 2.25rem);
+    min-height: 20rem;
+    box-shadow: var(--shadow);
+  }
+</style>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://openwavesdesign.com/sitemap-index.xml

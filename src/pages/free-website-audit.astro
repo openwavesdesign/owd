@@ -1,0 +1,64 @@
+---
+import Base from '../layouts/Base.astro';
+import HubSpotForm from '../components/HubSpotForm.astro';
+import { site } from '../config/site';
+
+const formId = site.hubspot.auditFormId || site.hubspot.contactFormId;
+---
+
+<Base
+  title={`Free Website Audit | ${site.name}`}
+  description="Get a free 5-minute video audit of your website: honest feedback on your design, SEO, and messaging, plus what to fix first. No obligation."
+>
+  <section class="page-hero">
+    <div class="container audit-grid">
+      <div>
+        <p class="eyebrow">Free video audit</p>
+        <h1>Find out what your website is really doing for you.</h1>
+        <p class="lead">
+          I’ll record a free 5-minute video walking through your site: specific, honest feedback on what’s working,
+          what’s not, and what I’d fix first. No obligation.
+        </p>
+        <ul class="check-list">
+          <li><strong>Better user experience</strong> so visitors stay longer and take action.</li>
+          <li><strong>Improved visibility</strong> with clear SEO and technical recommendations.</li>
+          <li><strong>Stronger messaging</strong> that connects your story to your ideal customers.</li>
+        </ul>
+        <p class="muted small">
+          I review a limited number of sites each month. Expect your video within 24–48 hours. Your info stays private.
+          No spam, ever.
+        </p>
+      </div>
+      <div id="audit-form">
+        <h2 class="form-title">Request your audit</h2>
+        <HubSpotForm formId={formId} />
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-hero {
+    padding-block: clamp(3.5rem, 8vw, 6rem);
+  }
+  .audit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2.5rem, 6vw, 5rem);
+    align-items: start;
+  }
+  .check-list {
+    margin: 2rem 0;
+  }
+  .small {
+    font-size: 0.95rem;
+  }
+  .form-title {
+    font-size: 1.35rem;
+  }
+  @media (max-width: 900px) {
+    .audit-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

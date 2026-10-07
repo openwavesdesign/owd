@@ -1,0 +1,112 @@
+---
+import Base from '../layouts/Base.astro';
+import Pricing from '../components/Pricing.astro';
+import Process from '../components/Process.astro';
+import AuditCta from '../components/AuditCta.astro';
+import { site } from '../config/site';
+
+const included = [
+  { title: 'Custom design', body: 'A site designed around your brand and your customers, not a recycled template.' },
+  { title: 'Development & launch', body: 'Fast, mobile-responsive, and built so it’s easy to keep up to date.' },
+  { title: 'Copy review & assistance', body: 'Clear words that sound like you and tell visitors exactly what to do next.' },
+  { title: 'On-page SEO', body: 'Page titles, descriptions and structure that help you show up in search.' },
+  { title: 'Analytics & Search Console', body: 'Know how people find you and what they do once they arrive.' },
+  { title: 'Booking & contact', body: 'Booking integrations and contact forms connected to the tools you already use.' },
+  { title: 'Training walkthrough', body: 'A personal walkthrough at launch so you feel confident with your new site.' },
+  { title: '30 days of support', body: 'I’m here after launch to fix, tweak, and answer questions.' },
+];
+---
+
+<Base
+  title={`Website Design Services & Pricing | ${site.name}`}
+  description={`Website design packages for small businesses in ${site.region}, from $3,000. Custom design, on-page SEO, analytics and 30 days of post-launch support.`}
+>
+  <section class="page-hero">
+    <div class="container narrow">
+      <p class="eyebrow">Services & pricing</p>
+      <h1>A website that does its job, done for you.</h1>
+      <p class="lead">
+        I handle the whole thing (design, development, SEO, and launch), so you can stay focused on running your
+        business.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--cream">
+    <div class="container">
+      <div class="narrow">
+        <p class="eyebrow">Every project includes</p>
+        <h2>Everything you need. Nothing you don’t.</h2>
+      </div>
+      <dl class="included">
+        {
+          included.map((item) => (
+            <div>
+              <dt>{item.title}</dt>
+              <dd>{item.body}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </section>
+
+  <section class="section" id="pricing">
+    <div class="container">
+      <div class="narrow center head">
+        <p class="eyebrow">Packages</p>
+        <h2>Clear, simple pricing.</h2>
+        <p class="lead">No surprise invoices. No scope creep. Just a straightforward investment in your business.</p>
+      </div>
+      <Pricing />
+      <p class="center muted note">
+        Not sure which fits? <a href="/contact/">Book a free discovery call</a> and we’ll figure it out together.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--cream">
+    <div class="container">
+      <div class="narrow">
+        <p class="eyebrow">How it works</p>
+        <h2>Simple process. No tech overwhelm.</h2>
+      </div>
+      <Process />
+    </div>
+  </section>
+
+  <AuditCta />
+</Base>
+
+<style>
+  .page-hero {
+    padding-block: clamp(3.5rem, 8vw, 6rem) clamp(3rem, 6vw, 4.5rem);
+  }
+  .included {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+    gap: 2rem 2.5rem;
+    margin: 3rem 0 0;
+  }
+  .included div {
+    border-top: 2px solid var(--navy);
+    padding-top: 1.25rem;
+  }
+  dt {
+    font-family: var(--font-head);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+  }
+  dd {
+    margin: 0;
+    font-size: 1rem;
+  }
+  .head {
+    margin-bottom: 3rem;
+  }
+  .note {
+    margin-top: 2.5rem;
+    font-size: 1rem;
+  }
+</style>

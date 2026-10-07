@@ -1,0 +1,74 @@
+---
+import Base from '../layouts/Base.astro';
+import HubSpotForm from '../components/HubSpotForm.astro';
+import { site } from '../config/site';
+---
+
+<Base
+  title={`Contact | ${site.name}`}
+  description={`Book a free discovery call with ${site.name}. Web design for small businesses in ${site.region}. Call or text ${site.phone}.`}
+>
+  <section class="page-hero">
+    <div class="container contact-grid">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h1>Let’s talk about your website.</h1>
+        <p class="lead">
+          Tell me a little about your business and what you need. I’ll get back to you within one business day to set
+          up a free discovery call.
+        </p>
+
+        <div class="direct">
+          <h2 class="label">Prefer to reach out directly?</h2>
+          <p>
+            Call or text<br /><a href={`tel:${site.phone}`} class="big">{site.phone}</a>
+          </p>
+          <p>
+            Email<br /><a href={`mailto:${site.email}`} class="big">{site.email}</a>
+          </p>
+          <p class="muted">Based in {site.region}. Happy to meet in person locally or by video call.</p>
+        </div>
+      </div>
+      <div>
+        <HubSpotForm formId={site.hubspot.contactFormId} />
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-hero {
+    padding-block: clamp(3.5rem, 8vw, 6rem);
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: clamp(2.5rem, 6vw, 5rem);
+    align-items: start;
+  }
+  .direct {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+  }
+  .label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 1.25rem;
+  }
+  .big {
+    font-family: var(--font-head);
+    font-size: 1.25rem;
+    font-weight: 600;
+    word-break: break-word;
+  }
+  .muted {
+    font-size: 1rem;
+  }
+  @media (max-width: 900px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
