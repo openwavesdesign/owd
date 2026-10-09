@@ -20,6 +20,11 @@ export const site = {
   // Google Analytics 4 measurement ID (e.g. 'G-XXXXXXX'). Leave empty to disable.
   gaId: '',
 
+  calendly: {
+    // "Discovery Call" event type (30 min). Embedded on /contact/#book.
+    discoveryUrl: 'https://calendly.com/openwavesdesign/discovery',
+  },
+
   hubspot: {
     portalId: '242375212',
     region: 'na2',
@@ -33,5 +38,6 @@ export const site = {
 export const nav = [
   { href: '/services/', label: 'Services & Pricing' },
   { href: '/about/', label: 'About' },
-  { href: '/contact/', label: 'Contact' },
+  // `cta` renders as the coral button in the header.
+  { href: '/contact/', label: 'Contact', cta: true },
 ];

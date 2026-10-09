@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import HubSpotForm from '../components/HubSpotForm.astro';
+import CalendlyEmbed from '../components/CalendlyEmbed.astro';
 import { site } from '../config/site';
 ---
 
@@ -8,25 +9,34 @@ import { site } from '../config/site';
   title={`Contact | ${site.name}`}
   description={`Book a free discovery call with ${site.name}. Web design for small businesses in ${site.region}. Call or text ${site.phone}.`}
 >
-  <section class="page-hero">
-    <div class="container contact-grid">
-      <div>
+  <section class="page-hero book" id="book">
+    <div class="container">
+      <div class="narrow center">
         <p class="eyebrow">Contact</p>
         <h1>Let’s talk about your website.</h1>
-        <p class="lead">
-          Tell me a little about your business and what you need. I’ll get back to you within one business day to set
-          up a free discovery call.
-        </p>
+        <p class="lead">Book a free 15-minute discovery call. Pick a time below and I’ll call you.</p>
+      </div>
+      <div class="book-embed">
+        <CalendlyEmbed />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--cream">
+    <div class="container contact-grid">
+      <div>
+        <h2>Prefer to write?</h2>
+        <p>Tell me a little about your business and what you need. I’ll get back to you within one business day.</p>
 
         <div class="direct">
-          <h2 class="label">Prefer to reach out directly?</h2>
+          <h3 class="label">Or reach out directly</h3>
           <p>
             Call or text<br /><a href={`tel:${site.phone}`} class="big">{site.phone}</a>
           </p>
           <p>
             Email<br /><a href={`mailto:${site.email}`} class="big">{site.email}</a>
           </p>
-          <p class="muted">Based in {site.region}. Happy to meet in person locally or by video call.</p>
+          <p class="muted">Based in {site.region}.</p>
         </div>
       </div>
       <div>
@@ -65,6 +75,13 @@ import { site } from '../config/site';
   }
   .muted {
     font-size: 1rem;
+  }
+  .book {
+    scroll-margin-top: 1rem;
+  }
+  .book-embed {
+    max-width: 64rem;
+    margin: 2.5rem auto 0;
   }
   @media (max-width: 900px) {
     .contact-grid {

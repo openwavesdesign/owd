@@ -1,5 +1,9 @@
 ---
 import { plans } from '../config/content';
+import { site } from '../config/site';
+import { calendlyEmbedUrl } from '../lib/calendly';
+
+const popupUrl = calendlyEmbedUrl(site.calendly.discoveryUrl);
 ---
 
 <div class="pricing">
@@ -15,13 +19,54 @@ import { plans } from '../config/content';
             <li>{f}</li>
           ))}
         </ul>
-        <a href="/contact/" class:list={['btn', plan.featured ? 'btn--primary' : 'btn--secondary']}>
-          Get started<span class="visually-hidden"> with {plan.name}</span>
+        <a
+          href="/contact/#book"
+          class:list={['btn', plan.featured ? 'btn--primary' : 'btn--secondary']}
+          data-calendly-popup={popupUrl}
+        >
+          Book a free call<span class="visually-hidden"> about {plan.name}</span>
         </a>
       </article>
     ))
   }
 </div>
+
+<script>
+  // Open the Calendly scheduler in a pop-up. Its script and styles load on the first click only,
+  // so pages with pricing don't pull in Calendly until someone wants to book.
+  // If Calendly can't load, the link falls back to the booking section on /contact/.
+  type CalendlyGlobal = { initPopupWidget: (opts: { url: string }) => void };
+  const w = window as typeof window & { Calendly?: CalendlyGlobal };
+  let loading: Promise<void> | undefined;
+
+  function loadCalendly(): Promise<void> {
+    loading ??= new Promise((resolve, reject) => {
+      const css = document.createElement('link');
+      css.rel = 'stylesheet';
+      css.href = 'https://assets.calendly.com/assets/external/widget.css';
+      document.head.append(css);
+      const js = document.createElement('script');
+      js.src = 'https://assets.calendly.com/assets/external/widget.js';
+      js.onload = () => resolve();
+      js.onerror = () => reject(new Error('Calendly failed to load'));
+      document.head.append(js);
+    });
+    return loading;
+  }
+
+  document.querySelectorAll<HTMLAnchorElement>('a[data-calendly-popup]').forEach((link) => {
+    link.addEventListener('click', async (event) => {
+      event.preventDefault();
+      try {
+        await loadCalendly();
+        w.Calendly!.initPopupWidget({ url: link.dataset.calendlyPopup! });
+      } catch {
+        loading = undefined;
+        window.location.href = link.href;
+      }
+    });
+  });
+</script>
 
 <style>
   .pricing {
