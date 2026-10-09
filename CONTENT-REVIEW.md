@@ -25,7 +25,7 @@ Anything **new or changed** is listed below. Items marked ⚠️ are claims I wr
 - ⚠️ **Contact page:** "I'll get back to you within one business day" and "Happy to meet in person locally or by video call."
 - ⚠️ **About values:** "One point of contact", "Plain English", "Small by design" (drawn from your bio).
 - ⚠️ **Services page "Every project includes" list:** written from your package bullets and process steps. Check that "Booking & contact" and "Training walkthrough" describe what you actually include.
-- ⚠️ **Contact page "Book a call" section:** "A free, no-pressure 30-minute phone call to see if we're a good fit. Pick a time that works for you and I'll call you then." (taken from your Calendly "Discovery Call" event: 30 min, you call them). Note: the line above it says "Happy to meet in person locally or by video call", but the Calendly event is set to phone only. Change one so they match.
+- ⚠️ **Phone vs. video:** the contact page says "Happy to meet in person locally or by video call", but your Calendly "Discovery Call" event is set to phone only. Change one so they match.
 - ⚠️ **"Most popular" badge** on the Standard package. Remove it if that isn't true.
 
 ## Kept as-is
