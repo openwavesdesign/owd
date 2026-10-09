@@ -1,0 +1,52 @@
+---
+// Calendly inline scheduling widget. Defaults to the discovery call event in site.ts.
+import { site } from '../config/site';
+
+interface Props {
+  url?: string;
+}
+const { url = site.calendly.discoveryUrl } = Astro.props;
+
+// Match the widget to the brand palette (hex without "#").
+const params = new URLSearchParams({
+  background_color: 'ffffff',
+  text_color: '13293d',
+  primary_color: '1b3a57',
+});
+const embedUrl = `${url}?${params}`;
+---
+
+<div class="calendly-shell">
+  <div class="calendly-inline-widget" data-url={embedUrl}></div>
+  <noscript>
+    <p>
+      The scheduler needs JavaScript. <a href={url}>Book on Calendly</a> instead, or call/text
+      <a href={`tel:${site.phone}`}>{site.phone}</a>.
+    </p>
+  </noscript>
+</div>
+<script is:inline src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+<style>
+  .calendly-shell {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .calendly-inline-widget {
+    min-width: 320px;
+    height: 700px;
+  }
+  noscript p {
+    padding: clamp(1.25rem, 3vw, 2.25rem);
+    margin: 0;
+  }
+  /* Calendly stacks the details above the calendar on narrow screens. */
+  @media (max-width: 650px) {
+    .calendly-inline-widget {
+      height: 1050px;
+    }
+  }
+</style>

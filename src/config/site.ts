@@ -20,6 +20,11 @@ export const site = {
   // Google Analytics 4 measurement ID (e.g. 'G-XXXXXXX'). Leave empty to disable.
   gaId: '',
 
+  calendly: {
+    // "Discovery Call" event type (30 min). Embedded on /contact/#book.
+    discoveryUrl: 'https://calendly.com/openwavesdesign/discovery',
+  },
+
   hubspot: {
     portalId: '242375212',
     region: 'na2',
