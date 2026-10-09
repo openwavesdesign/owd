@@ -1,19 +1,13 @@
 ---
 // Calendly inline scheduling widget. Defaults to the discovery call event in site.ts.
 import { site } from '../config/site';
+import { calendlyEmbedUrl } from '../lib/calendly';
 
 interface Props {
   url?: string;
 }
 const { url = site.calendly.discoveryUrl } = Astro.props;
-
-// Match the widget to the brand palette (hex without "#").
-const params = new URLSearchParams({
-  background_color: 'ffffff',
-  text_color: '13293d',
-  primary_color: '1b3a57',
-});
-const embedUrl = `${url}?${params}`;
+const embedUrl = calendlyEmbedUrl(url);
 ---
 
 <div class="calendly-shell">

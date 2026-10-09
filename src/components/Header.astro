@@ -3,6 +3,8 @@ import Wordmark from './Wordmark.astro';
 import { nav } from '../config/site';
 
 const path = Astro.url.pathname;
+const links = nav.filter((item) => !item.cta);
+const cta = nav.find((item) => item.cta);
 ---
 
 <header class="site-header">
@@ -19,7 +21,7 @@ const path = Astro.url.pathname;
     <nav id="site-nav" class="nav" aria-label="Main">
       <ul>
         {
-          nav.map((item) => (
+          links.map((item) => (
             <li>
               <a href={item.href} aria-current={path.startsWith(item.href) ? 'page' : undefined}>
                 {item.label}
@@ -28,7 +30,17 @@ const path = Astro.url.pathname;
           ))
         }
       </ul>
-      <a href="/free-website-audit/" class="btn btn--primary nav-cta">Free Site Audit</a>
+      {
+        cta && (
+          <a
+            href={cta.href}
+            class="btn btn--primary nav-cta"
+            aria-current={path.startsWith(cta.href) ? 'page' : undefined}
+          >
+            {cta.label}
+          </a>
+        )
+      }
     </nav>
   </div>
 </header>

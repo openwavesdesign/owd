@@ -22,10 +22,12 @@ Anything **new or changed** is listed below. Items marked ⚠️ are claims I wr
 
 - ⚠️ **Service areas:** Philadelphia, Montgomery, Bucks, Chester and Delaware Counties. Add or remove any (e.g. South Jersey).
 - ⚠️ **"I work with service businesses and makers across Greater Philadelphia, and with clients across the country. You get one person who knows your business and picks up when you call."**
-- ⚠️ **Contact page:** "I'll get back to you within one business day" and "Happy to meet in person locally or by video call."
+- ⚠️ **Contact page:** "I'll get back to you within one business day" (now under "Prefer to write?", below the scheduler).
 - ⚠️ **About values:** "One point of contact", "Plain English", "Small by design" (drawn from your bio).
 - ⚠️ **Services page "Every project includes" list:** written from your package bullets and process steps. Check that "Booking & contact" and "Training walkthrough" describe what you actually include.
-- ⚠️ **Phone vs. video:** the contact page says "Happy to meet in person locally or by video call", but your Calendly "Discovery Call" event is set to phone only. Change one so they match.
+- ⚠️ **Contact page intro:** "Book a free 15-minute discovery call. Pick a time below and I'll call you." (matches your Calendly event: 15 min, phone).
+- ⚠️ **Removed "Happy to meet in person locally or by video call."** Discovery calls are phone only now, so the contact page just says "Based in Greater Philadelphia." Add the in-person line back if you still offer local meetings for projects.
+- ⚠️ **Pricing card buttons** now say "Book a free call" (was "Get started") and open your Calendly scheduler in a pop-up.
 - ⚠️ **"Most popular" badge** on the Standard package. Remove it if that isn't true.
 
 ## Kept as-is

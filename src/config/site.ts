@@ -38,5 +38,6 @@ export const site = {
 export const nav = [
   { href: '/services/', label: 'Services & Pricing' },
   { href: '/about/', label: 'About' },
-  { href: '/contact/', label: 'Contact' },
+  // `cta` renders as the coral button in the header.
+  { href: '/contact/', label: 'Contact', cta: true },
 ];
