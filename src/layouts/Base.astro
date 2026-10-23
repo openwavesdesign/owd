@@ -22,10 +22,7 @@ const schema = {
   email: site.email,
   founder: { '@type': 'Person', name: site.owner },
   description: site.description,
-  areaServed: [
-    { '@type': 'Place', name: `${site.region}` },
-    ...site.areas.map((name) => ({ '@type': 'Place', name: `${name}, PA` })),
-  ],
+  areaServed: site.areas.map((name) => ({ '@type': 'Place', name: `${name}, PA` })),
   priceRange: '$3,000+',
 };
 ---

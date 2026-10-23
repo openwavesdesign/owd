@@ -6,11 +6,12 @@ export const site = {
   owner: 'Craig Allen',
   phone: '267-328-5079',
   email: 'craig@openwavesdesign.com',
-  region: 'Greater Philadelphia',
-  areas: ['Philadelphia', 'Montgomery County', 'Bucks County', 'Chester County', 'Delaware County'],
+  region: 'Philadelphia area',
+  basedIn: 'Lansdale, PA',
+  areas: ['Philadelphia', 'Montgomery County', 'Bucks County', 'Delaware County', 'Chester County'],
   googleReviewsUrl: 'https://maps.google.com/?cid=17575922742765262274',
   description:
-    'Web design for small businesses in Greater Philadelphia. Beautiful, strategic websites that help local businesses get found and booked. Free video site audit.',
+    'Web design for small businesses in the Philadelphia area. Beautiful, strategic websites that help local businesses get found and booked. Free video site audit.',
 
   // Optional assets. Drop the files into /public/images and set the paths.
   // Leave as null to use the built-in text wordmark / monogram.

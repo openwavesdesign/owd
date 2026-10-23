@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-Marketing site for Open Waves Design, a one-person web design business (owner: Craig Allen) targeting small businesses in Greater Philadelphia first, then nationwide. Static Astro site (Astro 7, Node >= 22.12), no UI framework, plain CSS. Replaces a WordPress/Elementor site at openwavesdesign.com.
+Marketing site for Open Waves Design, a one-person web design business (owner: Craig Allen) targeting small businesses in the Philadelphia area first, then nationwide. Static Astro site (Astro 7, Node >= 22.12), no UI framework, plain CSS. Replaces a WordPress/Elementor site at openwavesdesign.com.
 
 ## Commands
 

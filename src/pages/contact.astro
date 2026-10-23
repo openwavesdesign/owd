@@ -7,7 +7,7 @@ import { site } from '../config/site';
 
 <Base
   title={`Contact | ${site.name}`}
-  description={`Book a free discovery call with ${site.name}. Web design for small businesses in ${site.region}. Call or text ${site.phone}.`}
+  description={`Book a free discovery call with ${site.name}. Web design for small businesses in the ${site.region}. Call or text ${site.phone}.`}
 >
   <section class="page-hero book" id="book">
     <div class="container">
@@ -36,7 +36,7 @@ import { site } from '../config/site';
           <p>
             Email<br /><a href={`mailto:${site.email}`} class="big">{site.email}</a>
           </p>
-          <p class="muted">Based in {site.region}.</p>
+          <p class="muted">Based in {site.basedIn}. Serving the {site.region} and clients remotely.</p>
         </div>
       </div>
       <div>
