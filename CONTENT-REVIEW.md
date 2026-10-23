@@ -40,8 +40,20 @@ Copy was supplied by you. Decisions so far:
 - ✅ **Hero eyebrow (updated per owner):** "Web design for solopreneurs · Greater Philadelphia".
 - ✅ **Footer (updated per owner):** "LLC" removed. It now reads "© {year} Open Waves Design · Lansdale, PA".
 - ✅ **Portfolio captions (kept as written, per owner):** "Simplify Your Space, Professional organizer" and "Jo's Desserts, Custom cookie baker".
-- ⚠️ **Thank-you page button:** "View case studies" links to /case-studies/, which doesn't exist (404).
+- ⚠️ **Thank-you page button:** "View case studies" links to /case-studies/. That page now exists but is blank (see "Case studies" below). Ad leads will see an empty page until it has content.
 - OK: the testimonial now renders from `src/config/content.ts`, so it stays identical to the main site. "$3,000 for up to 4 pages", "24–48 hours", "a limited number of sites each month" and "No surprise invoices" all match existing site copy.
+
+## Case studies (to create)
+
+`/case-studies/` (`src/pages/case-studies.astro`) is a blank placeholder: a heading only. It's `noindex`, left out of the sitemap, and not in the nav. The ad thank-you page links to it.
+
+To do:
+
+- [ ] Choose 2–3 projects. Candidates already on the landing page: Jo's Desserts and Simplify Your Space.
+- [ ] For each: the client's name and business type, what they needed, what you built, and a screenshot. Add any results only if you can verify them.
+- [ ] Get each client's OK to be featured, and to be quoted if you use a quote.
+- [ ] Add the screenshots to `public/images/` (the landing page expects `public/images/portfolio/simplify-your-space.jpg` and `jos-desserts.jpg`).
+- [ ] Once the page has content: remove `noindex` from `case-studies.astro`, remove the `/case-studies/` exclusion in `astro.config.mjs`, and decide whether to add it to the nav.
 
 ## Kept as-is
 
@@ -53,7 +65,7 @@ Pricing (all three packages and bullets), the 3-step process, the Joanna Davis t
 2. **HubSpot audit form:** your current audit form isn't in HubSpot. Create one (name, email, website, likes/dislikes) and paste its ID into `hubspot.auditFormId`.
 3. **More reviews:** you have 2 Google reviews. Asking each past client for one is the single biggest local-SEO lever.
 4. **Local landing pages later:** for example "Web design for Lansdale small businesses", once you have a local project or two to show.
-5. **Portfolio / case studies:** even 2–3 short ones (Jo's Desserts?) would make the site much more convincing.
+5. **Portfolio / case studies:** see "Case studies" below.
 6. **Privacy policy page:** HubSpot forms and analytics set cookies, so add a privacy page (and a consent banner if you turn on GA).
 7. **Share image:** add a 1200×630 `og:image` (it's easy to make in Canva).
 8. **Fix on the current site:** your live /contact/ page sends a `noindex` robots tag, so Google won't index it. The new site doesn't do this.
