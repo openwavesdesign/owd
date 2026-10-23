@@ -1,0 +1,367 @@
+---
+/**
+ * Google Ads landing page — Free 5-Minute Website Video Audit
+ * Suggested path: src/pages/lp/website-audit.astro  → /lp/website-audit
+ *
+ * Standalone on purpose: no site nav or footer links, so ad visitors have
+ * one job (fill out the form). noindex keeps it out of organic search so it
+ * doesn't compete with your homepage.
+ *
+ * BEFORE LAUNCH — search this file for "TODO".
+ */
+
+// ---------- CONFIG ----------
+const THANKS_PATH = "/lp/audit-thanks"; // Google Ads conversion fires on this page
+
+// TODO: Pick ONE form backend and verify against its current docs:
+//  - Netlify Forms: keep USE_NETLIFY_FORMS = true (only works if the site is hosted on Netlify)
+//  - HubSpot / Formspree / other: set USE_NETLIFY_FORMS = false and set FORM_ACTION to that endpoint
+const USE_NETLIFY_FORMS = true;
+const FORM_ACTION = USE_NETLIFY_FORMS ? THANKS_PATH : "TODO-your-form-endpoint";
+const netlifyAttrs = USE_NETLIFY_FORMS
+  ? { "data-netlify": "true", "netlify-honeypot": "company_website" }
+  : {};
+
+const portfolio = [
+  {
+    client: "Simplify Your Space",
+    type: "Professional organizer",
+    img: "/images/portfolio/simplify-your-space.jpg", // TODO: add screenshot
+    url: "TODO-https://...",
+  },
+  {
+    client: "Jo's Desserts",
+    type: "Custom cookie baker",
+    img: "/images/portfolio/jos-desserts.jpg", // TODO: add screenshot
+    url: "TODO-https://...",
+  },
+];
+
+const faqs = [
+  {
+    q: "Is the audit really free?",
+    a: "Yes. You get a short personal video with honest feedback on your site. No obligation, and no sales pressure.",
+  },
+  {
+    q: "What if I don't have a website yet?",
+    a: "Send me what you have (a social profile, a booking page, or nothing at all) and I'll talk through what your first site should do for you.",
+  },
+  {
+    q: "What does a new site cost?",
+    a: "Projects start at $3,000 for up to 4 pages, with fixed pricing so there are no surprise invoices.",
+  },
+  {
+    q: "Do you only work locally?",
+    a: "I'm based in Lansdale and love working with Montgomery County businesses, but I build sites for solopreneurs anywhere.",
+  },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, follow" />
+    <title>Free Website Video Audit | Open Waves Design</title>
+    <meta
+      name="description"
+      content="Get a free 5-minute video audit of your website from a Lansdale web designer who builds sites for solopreneurs."
+    />
+    <link rel="icon" href="/favicon.png" /><!-- TODO: confirm favicon path -->
+    <!-- TODO: Paste the GTM <head> snippet from Google Tag Manager here (Admin → Install Google Tag Manager).
+         In Astro, change its <script> to <script is:inline> so Astro doesn't bundle it.
+         Use GTM only — don't also hard-code gtag.js, or conversions may double count. -->
+  </head>
+
+  <body>
+    <!-- TODO: Paste the GTM <noscript> snippet here, right after <body> -->
+    <header class="topbar">
+      <div class="wrap">
+        <img src="/images/logo.svg" alt="Open Waves Design" class="logo" /><!-- TODO: logo path -->
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO + FORM -->
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Web design for solopreneurs · Philadelphia area</p>
+            <h1>Is your website costing you clients?</h1>
+            <p class="lede">
+              Get a free 5-minute video audit of your site: specific, honest feedback on
+              what's working, what's not, and what I'd fix first.
+            </p>
+            <ul class="checks">
+              <li>Personal video recorded by me, not an automated report</li>
+              <li>Delivered in 24–48 hours</li>
+              <li>No obligation and no sales pressure</li>
+            </ul>
+          </div>
+
+          <div class="form-card" id="audit">
+            <h2>Request your free audit</h2>
+            <form
+              name="website-audit"
+              method="POST"
+              action={FORM_ACTION}
+              {...netlifyAttrs}
+            >
+              {USE_NETLIFY_FORMS && <input type="hidden" name="form-name" value="website-audit" />}
+
+              <!-- Honeypot: hidden from people, bots fill it in -->
+              <p class="hp" aria-hidden="true">
+                <label>Leave this empty <input name="company_website" tabindex="-1" autocomplete="off" /></label>
+              </p>
+
+              <label>
+                Your name
+                <input name="name" type="text" autocomplete="name" required />
+              </label>
+              <label>
+                Email
+                <input id="email" name="email" type="email" autocomplete="email" required />
+              </label>
+              <label>
+                Website URL <span class="opt">(leave blank if you don't have one)</span>
+                <input name="website" type="text" inputmode="url" placeholder="yourbusiness.com" />
+              </label>
+              <label>
+                What does your business do?
+                <input name="business_type" type="text" placeholder="e.g. home organizer, baker, coach" required />
+              </label>
+              <label>
+                Biggest frustration with your site <span class="opt">(optional)</span>
+                <textarea name="frustration" rows="3"></textarea>
+              </label>
+
+              <!-- Ad attribution: filled from the URL by the script below -->
+              <input type="hidden" name="gclid" />
+              <input type="hidden" name="utm_source" />
+              <input type="hidden" name="utm_medium" />
+              <input type="hidden" name="utm_campaign" />
+              <input type="hidden" name="utm_term" />
+
+              <button type="submit" class="btn">Get My Free Audit</button>
+              <p class="fine">I review a limited number of sites each month.</p>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROBLEM -->
+      <section class="band">
+        <div class="wrap narrow">
+          <h2>You're great at what you do. Does your website show it?</h2>
+          <p>When someone nearby searches for your services, your site often makes the first impression. Common problems I see:</p>
+          <ul class="x-list">
+            <li>A DIY site that doesn't reflect the quality of your work</li>
+            <li>Confusing navigation and no clear way to book or contact you</li>
+            <li>Copy that sounds like everyone else's</li>
+            <li>A site that's hard to find on Google</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- WHAT YOU GET -->
+      <section>
+        <div class="wrap">
+          <h2 class="center">What's in your audit</h2>
+          <div class="cards three">
+            <div class="card">
+              <h3>First impression</h3>
+              <p>Does your site build trust in the first few seconds, on phones as well as desktop?</p>
+            </div>
+            <div class="card">
+              <h3>Path to booking</h3>
+              <p>How easy is it for a visitor to contact or book you, and where do they get stuck?</p>
+            </div>
+            <div class="card">
+              <h3>Findability</h3>
+              <p>The on-page SEO basics that help local clients find you on Google.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PORTFOLIO -->
+      <section class="band">
+        <div class="wrap">
+          <h2 class="center">Recent sites for solopreneurs</h2>
+          <div class="cards two">
+            {portfolio.map((p) => (
+              <figure class="work">
+                <img src={p.img} alt={`${p.client} website`} loading="lazy" />
+                <figcaption>
+                  <strong>{p.client}</strong>
+                  <span>{p.type}</span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONIALS -->
+      <section>
+        <div class="wrap narrow">
+          <blockquote class="quote">
+            <p>
+              "Loved working with Craig to set up my website when I started my new small
+              business. Everything looks great and he was very patient and helpful
+              explaining everything to me, someone who is technologically challenged."
+            </p>
+            <cite>Joanna Davis, Owner, Jo's Desserts</cite>
+          </blockquote>
+          <!-- TODO: add Kate's (Simplify Your Space) testimonial once you have it in writing.
+          <blockquote class="quote">
+            <p>"..."</p>
+            <cite>Kate ..., Simplify Your Space</cite>
+          </blockquote>
+          -->
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="band">
+        <div class="wrap about">
+          <img src="/images/craig-allen.jpg" alt="Craig Allen" class="headshot" loading="lazy" /><!-- TODO: photo path -->
+          <div>
+            <h2>Hi, I'm Craig.</h2>
+            <p>
+              I've spent 20 years building websites and managing digital projects. I build
+              sites for solopreneurs because I am one. I work with a small number of clients
+              at a time, so you work directly with me, not a junior designer or an overseas
+              contractor.
+            </p>
+            <p>Fixed-price projects start at <strong>$3,000</strong>. No surprise invoices.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section>
+        <div class="wrap narrow">
+          <h2 class="center">Questions</h2>
+          {faqs.map((f) => (
+            <details class="faq">
+              <summary>{f.q}</summary>
+              <p>{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <!-- FINAL CTA -->
+      <section class="cta-band">
+        <div class="wrap narrow center">
+          <h2>Find out what your website is really doing for you.</h2>
+          <a href="#audit" class="btn btn-light">Get My Free Audit</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <div class="wrap">© {new Date().getFullYear()} Open Waves Design, LLC · Lansdale, PA</div>
+    </footer>
+
+    <script>
+      // Copy gclid / UTM values from the ad click URL into hidden fields
+      // so each lead in your inbox/CRM shows which campaign and keyword it came from.
+      const params = new URLSearchParams(window.location.search);
+      ["gclid", "utm_source", "utm_medium", "utm_campaign", "utm_term"].forEach((key) => {
+        const value = params.get(key);
+        const field = document.querySelector<HTMLInputElement>(`input[name="${key}"]`);
+        if (value && field) field.value = value;
+      });
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  /* TODO: replace these with your brand colors and fonts */
+  :root {
+    --brand: #1f5f73;
+    --brand-dark: #154452;
+    --accent: #e8a33d;
+    --ink: #1d2327;
+    --muted: #5b6770;
+    --bg: #ffffff;
+    --bg-alt: #f4f7f8;
+    --line: #dde4e7;
+    --font-head: Georgia, "Times New Roman", serif;
+    --font-body: system-ui, -apple-system, "Segoe UI", sans-serif;
+    --radius: 12px;
+  }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: var(--font-body); color: var(--ink); background: var(--bg); line-height: 1.6; font-size: 17px; }
+  h1, h2, h3 { font-family: var(--font-head); line-height: 1.2; margin: 0 0 0.6em; }
+  h1 { font-size: clamp(2rem, 5vw, 3rem); }
+  h2 { font-size: clamp(1.5rem, 3.5vw, 2rem); }
+  h3 { font-size: 1.15rem; }
+  img { max-width: 100%; display: block; }
+  section { padding: 64px 0; }
+
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+  .narrow { max-width: 760px; }
+  .center { text-align: center; }
+  .band { background: var(--bg-alt); }
+
+  .topbar { padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .logo { height: 40px; width: auto; }
+
+  .hero { padding-top: 48px; }
+  .hero-grid { display: grid; gap: 40px; align-items: start; }
+  @media (min-width: 900px) { .hero-grid { grid-template-columns: 1.1fr 1fr; } }
+  .eyebrow { color: var(--brand); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0 12px; }
+  .lede { font-size: 1.15rem; color: var(--muted); }
+  .checks { list-style: none; padding: 0; margin: 24px 0 0; }
+  .checks li { padding-left: 28px; position: relative; margin-bottom: 8px; }
+  .checks li::before { content: "✓"; position: absolute; left: 0; color: var(--brand); font-weight: 700; }
+
+  .form-card { background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); }
+  .form-card h2 { font-size: 1.4rem; }
+  form label { display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 14px; }
+  form input, form textarea { display: block; width: 100%; margin-top: 6px; padding: 12px; font: inherit; border: 1px solid var(--line); border-radius: 8px; }
+  form input:focus, form textarea:focus { outline: 2px solid var(--brand); outline-offset: 1px; }
+  .opt { font-weight: 400; color: var(--muted); }
+  .hp { position: absolute; left: -9999px; }
+  .fine { font-size: 0.85rem; color: var(--muted); margin: 10px 0 0; text-align: center; }
+
+  .btn { display: inline-block; width: 100%; padding: 14px 24px; background: var(--brand); color: #fff; border: 0; border-radius: 8px; font: inherit; font-weight: 700; font-size: 1.05rem; cursor: pointer; text-decoration: none; text-align: center; }
+  .btn:hover { background: var(--brand-dark); }
+  .btn-light { width: auto; background: #fff; color: var(--brand); }
+  .btn-light:hover { background: var(--bg-alt); }
+
+  .x-list { padding-left: 1.2em; }
+  .x-list li { margin-bottom: 6px; }
+
+  .cards { display: grid; gap: 20px; margin-top: 24px; }
+  @media (min-width: 760px) { .cards.three { grid-template-columns: repeat(3, 1fr); } .cards.two { grid-template-columns: repeat(2, 1fr); } }
+  .card { background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
+  .card p { margin: 0; color: var(--muted); }
+
+  .work { margin: 0; background: var(--bg); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); }
+  .work img { aspect-ratio: 16 / 10; object-fit: cover; width: 100%; background: var(--line); }
+  .work figcaption { padding: 14px 18px; display: flex; flex-direction: column; }
+  .work figcaption span { color: var(--muted); font-size: 0.95rem; }
+
+  .quote { margin: 0; padding: 28px; border-left: 4px solid var(--accent); background: var(--bg-alt); border-radius: 0 var(--radius) var(--radius) 0; }
+  .quote p { font-size: 1.15rem; font-style: italic; margin-top: 0; }
+  .quote cite { font-style: normal; font-weight: 600; color: var(--muted); }
+
+  .about { display: grid; gap: 28px; align-items: center; }
+  @media (min-width: 760px) { .about { grid-template-columns: 220px 1fr; } }
+  .headshot { width: 220px; height: 220px; object-fit: cover; border-radius: 50%; }
+
+  .faq { border-bottom: 1px solid var(--line); padding: 16px 0; }
+  .faq summary { font-weight: 600; cursor: pointer; }
+  .faq p { margin: 10px 0 0; color: var(--muted); }
+
+  .cta-band { background: var(--brand); color: #fff; }
+  .cta-band h2 { color: #fff; }
+
+  .foot { padding: 24px 0; font-size: 0.9rem; color: var(--muted); border-top: 1px solid var(--line); }
+</style>
