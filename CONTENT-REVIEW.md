@@ -1,6 +1,6 @@
 # Content review: please approve or edit
 
-Copy was carried over from openwavesdesign.com and localized for the Philadelphia area.
+Copy was carried over from openwavesdesign.com and localized for Greater Philadelphia.
 Anything **new or changed** is listed below. Items marked ⚠️ are claims I wrote that only you can confirm.
 
 ## Changed from the current site
@@ -8,27 +8,27 @@ Anything **new or changed** is listed below. Items marked ⚠️ are claims I wr
 | Where | Current site | New site | Why |
 | --- | --- | --- | --- |
 | Home title tag | Web Design for Solopreneurs \| Open Waves Design | Philadelphia Small Business Web Design \| Open Waves Design | Local SEO: city/region in the title (owner-approved wording) |
-| Home eyebrow | Web Design for Small Businesses | Web design for Philadelphia area small businesses | Local positioning |
+| Home eyebrow | Web Design for Small Businesses | Web design for Greater Philadelphia small businesses | Local positioning |
 | Home subhead | I create beautiful, strategic websites for solopreneurs and small business owners | …for local small businesses and solopreneurs. Sites that get you found, build trust, and turn visitors into customers. | Local, plus a clear outcome |
 | Home trust line | (none) | 5.0 on Google · 20 years building websites | Social proof (your Google listing currently shows 5.0 from 2 reviews) |
 | "Your website might be the reason…" | clients | customers | Local businesses often have customers, not clients |
 | Built to Be Found | …so you show up when your ideal clients are searching | …so you show up when customers nearby search for what you do | Local |
 | Built for your business | I specialize in websites for solopreneurs because I am one. | Local small businesses are my specialty, because I run one too. + a short paragraph | Local positioning; keeps your line |
 | Contact page | "Contact Us… We're here to help" (we) | "Let's talk about your website." (I) | The rest of the site speaks as "I"; this makes it consistent |
-| About | Bio as on home page | Same bio + one sentence about now focusing on local businesses in the Philadelphia area, plus "I'm based in Lansdale, PA, and I also work with clients remotely." | Local (Lansdale and remote work confirmed by owner) |
+| About | Bio as on home page | Same bio + one sentence about now focusing on local businesses in Greater Philadelphia, plus "I'm based in Lansdale, PA, and I also work with clients remotely." | Local (Lansdale and remote work confirmed by owner) |
 | Audit page H1 | Get Your Free Website Audit | Find out what your website is really doing for you. | More benefit-led; the button still says "free site audit" |
 
 ## New copy that needs your OK
 
-- ✅ **Service areas (confirmed by owner):** Philadelphia, Montgomery County, Bucks County, Delaware County and Chester County, PA. Short form: "Philadelphia area".
+- ✅ **Service areas (confirmed by owner):** Philadelphia, Montgomery County, Bucks County, Delaware County and Chester County, PA. Short form: "Greater Philadelphia".
 - ✅ **Based in Lansdale, PA; also works with clients remotely (confirmed by owner).** Shown on the About and Contact pages.
-- ✅ **Footer (confirmed by owner):** "Websites for solopreneurs and small businesses in the Philadelphia area and beyond."
-- ⚠️ **"I work with service businesses and makers across the Philadelphia area, and with clients across the country. You get one person who knows your business and picks up when you call."**
+- ✅ **Footer (confirmed by owner):** "Websites for solopreneurs and small businesses in Greater Philadelphia and beyond."
+- ⚠️ **"I work with service businesses and makers across Greater Philadelphia, and with clients across the country. You get one person who knows your business and picks up when you call."**
 - ⚠️ **Contact page:** "I'll get back to you within one business day" (now under "Prefer to write?", below the scheduler).
 - ⚠️ **About values:** "One point of contact", "Plain English", "Small by design" (drawn from your bio).
 - ⚠️ **Services page "Every project includes" list:** written from your package bullets and process steps. Check that "Booking & contact" and "Training walkthrough" describe what you actually include.
 - ⚠️ **Contact page intro:** "Book a free 15-minute discovery call. Pick a time below and I'll call you." (matches your Calendly event: 15 min, phone).
-- ⚠️ **Removed "Happy to meet in person locally or by video call."** Discovery calls are phone only now, so the contact page now says "Based in Lansdale, PA. Serving the Philadelphia area and clients remotely." Add the in-person line back if you still offer local meetings for projects.
+- ⚠️ **Removed "Happy to meet in person locally or by video call."** Discovery calls are phone only now, so the contact page now says "Based in Lansdale, PA. Serving Greater Philadelphia and clients remotely." Add the in-person line back if you still offer local meetings for projects.
 - ⚠️ **Pricing card buttons** now say "Book a free call" (was "Get started") and open your Calendly scheduler in a pop-up.
 - ⚠️ **"Most popular" badge** on the Standard package. Remove it if that isn't true.
 
