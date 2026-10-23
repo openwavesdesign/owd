@@ -34,12 +34,12 @@ Anything **new or changed** is listed below. Items marked ⚠️ are claims I wr
 
 ## Google Ads landing pages (/lp/website-audit/, /lp/audit-thanks/)
 
-Copy was supplied by you and kept as written. These items need a decision before ads go live:
+Copy was supplied by you. Decisions so far:
 
-- ⚠️ **FAQ "Do you only work locally?":** "I'm based in Lansdale and love working with Montgomery County businesses…" The rest of the site now says Greater Philadelphia. Change to match?
-- ⚠️ **Hero eyebrow:** "Web design for solopreneurs · Philadelphia area". The rest of the site says "Greater Philadelphia".
-- ⚠️ **Footer:** "Open Waves Design, LLC". "LLC" isn't stated anywhere else on the site. Confirm the legal name.
-- ⚠️ **Portfolio captions:** "Simplify Your Space, Professional organizer" and "Jo's Desserts, Custom cookie baker". Neither client is named elsewhere on the site, and the site's client list says "Home bakers". Confirm both, and that you have permission to show them.
+- ✅ **FAQ (updated per owner):** "I'm based in Lansdale and love working with Greater Philadelphia businesses, but I build sites for solopreneurs anywhere."
+- ✅ **Hero eyebrow (updated per owner):** "Web design for solopreneurs · Greater Philadelphia".
+- ✅ **Footer (updated per owner):** "LLC" removed. It now reads "© {year} Open Waves Design · Lansdale, PA".
+- ✅ **Portfolio captions (kept as written, per owner):** "Simplify Your Space, Professional organizer" and "Jo's Desserts, Custom cookie baker".
 - ⚠️ **Thank-you page button:** "View case studies" links to /case-studies/, which doesn't exist (404).
 - OK: the testimonial now renders from `src/config/content.ts`, so it stays identical to the main site. "$3,000 for up to 4 pages", "24–48 hours", "a limited number of sites each month" and "No surprise invoices" all match existing site copy.
 
