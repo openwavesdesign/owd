@@ -32,6 +32,17 @@ Anything **new or changed** is listed below. Items marked ⚠️ are claims I wr
 - ⚠️ **Pricing card buttons** now say "Book a free call" (was "Get started") and open your Calendly scheduler in a pop-up.
 - ⚠️ **"Most popular" badge** on the Standard package. Remove it if that isn't true.
 
+## Google Ads landing pages (/lp/website-audit/, /lp/audit-thanks/)
+
+Copy was supplied by you and kept as written. These items need a decision before ads go live:
+
+- ⚠️ **FAQ "Do you only work locally?":** "I'm based in Lansdale and love working with Montgomery County businesses…" The rest of the site now says Greater Philadelphia. Change to match?
+- ⚠️ **Hero eyebrow:** "Web design for solopreneurs · Philadelphia area". The rest of the site says "Greater Philadelphia".
+- ⚠️ **Footer:** "Open Waves Design, LLC". "LLC" isn't stated anywhere else on the site. Confirm the legal name.
+- ⚠️ **Portfolio captions:** "Simplify Your Space, Professional organizer" and "Jo's Desserts, Custom cookie baker". Neither client is named elsewhere on the site, and the site's client list says "Home bakers". Confirm both, and that you have permission to show them.
+- ⚠️ **Thank-you page button:** "View case studies" links to /case-studies/, which doesn't exist (404).
+- OK: the testimonial now renders from `src/config/content.ts`, so it stays identical to the main site. "$3,000 for up to 4 pages", "24–48 hours", "a limited number of sites each month" and "No surprise invoices" all match existing site copy.
+
 ## Kept as-is
 
 Pricing (all three packages and bullets), the 3-step process, the Joanna Davis testimonial, the client-type list, the free audit offer and its 24–48 hour note.

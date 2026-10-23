@@ -5,7 +5,10 @@
  *
  * GTM fires the Google Ads conversion tag on this page (trigger: Page Path equals /lp/audit-thanks). Only people who
  * submitted the form should land here, so each visit = one lead.
+ * Note: the site uses trailing slashes, so the live path is /lp/audit-thanks/ (see GTM trigger note in the summary).
  */
+import '../../styles/global.css';
+import Wordmark from '../../components/Wordmark.astro';
 ---
 
 <!doctype html>
@@ -15,13 +18,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex, nofollow" />
     <title>Thanks! Your audit request is in | Open Waves Design</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <!-- TODO: Paste the same GTM <head> snippet used on the landing page (as <script is:inline>).
          The Google Ads conversion tag fires from GTM on this page path — no separate snippet needed here. -->
   </head>
   <body>
     <!-- TODO: Paste the GTM <noscript> snippet here, right after <body> -->
     <main class="wrap">
-      <img src="/images/logo.svg" alt="Open Waves Design" class="logo" /><!-- TODO: logo path -->
+      <div class="logo"><Wordmark /></div><!-- Uses site.logo once it is set in src/config/site.ts -->
       <h1>Thanks! Your audit request is in.</h1>
       <p>
         I'll record your personal video audit and email it to you within 24–48 hours.
@@ -34,11 +38,13 @@
 </html>
 
 <style is:global>
-  :root { --brand: #1f5f73; --ink: #1d2327; --muted: #5b6770; } /* TODO: brand colors */
-  body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--ink); line-height: 1.6; font-size: 17px; }
+  /* Brand tokens and fonts come from src/styles/global.css */
+  body { margin: 0; font-family: var(--font-body); background: var(--paper); color: var(--ink); line-height: 1.6; font-size: 17px; }
   .wrap { max-width: 640px; margin: 0 auto; padding: 64px 16px; text-align: center; }
-  .logo { height: 40px; width: auto; margin: 0 auto 32px; display: block; }
-  h1 { font-family: Georgia, serif; font-size: clamp(1.8rem, 5vw, 2.4rem); line-height: 1.2; }
-  p { color: var(--muted); }
-  .btn { display: inline-block; margin-top: 12px; padding: 14px 24px; background: var(--brand); color: #fff; border-radius: 8px; font-weight: 700; text-decoration: none; }
+  .logo { display: flex; justify-content: center; margin: 0 auto 32px; }
+  h1 { font-family: var(--font-head); font-size: clamp(1.8rem, 5vw, 2.4rem); line-height: 1.2; }
+  p { color: var(--gray); }
+  .btn { display: inline-block; margin-top: 12px; padding: 14px 24px; background: var(--navy); color: #fff; border-radius: var(--radius-sm); font-family: var(--font-head); font-weight: 700; text-decoration: none; }
+.btn:hover { background: var(--ink); }
+  :focus-visible { outline-color: var(--navy); }
 </style>
